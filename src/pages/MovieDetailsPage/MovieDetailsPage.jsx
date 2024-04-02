@@ -6,7 +6,7 @@ import GoBackBtn from "../../components/GoBackBtn/GoBackBtn";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import css from './MovieDetailsPage.module.css'
-import { castMovie, detailsMovie, reviewsMovie } from "../../service/movieApi";
+import {  detailsMovie } from "../../service/movieApi";
 
 
 const MovieDetailsPage = () => {
@@ -17,8 +17,7 @@ const MovieDetailsPage = () => {
   const location = useLocation();
  
   const goBack = useRef(location?.state?.from ?? '/');
-  const [cast, setCast] = useState([]);
-  const [reviews, setReviews] = useState([]);
+ 
   
   
 
@@ -29,12 +28,7 @@ const MovieDetailsPage = () => {
       try {
         const detailsResponse = await detailsMovie(movieId);
         setMovieDetails(detailsResponse.data);
-          
-        const castResponse = await castMovie(movieId);
-        setCast(castResponse.data.cast);
-
-        const reviewsResponse = await reviewsMovie(movieId);
-        setReviews(reviewsResponse.data.results);
+      
       } catch (error) {
         setError(error);
       } finally {
@@ -87,8 +81,8 @@ const MovieDetailsPage = () => {
       </div>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="cast" element={<MovieCast cast={cast} />} />
-         <Route path="reviews" element={<MovieReviews reviews={reviews} />} /> 
+          <Route path="cast" element={<MovieCast  />} />
+         <Route path="reviews" element={<MovieReviews  />} /> 
         </Routes>
       </Suspense>
     
