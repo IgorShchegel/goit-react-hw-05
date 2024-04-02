@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+}
+
+.list {
+    display: flex;
+    gap: 15px;
+    font-size: 30px;
+    list-style-type: none;
+}

@@ -1,0 +1,14 @@
+.field {
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+
+.button {
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 3px 10px;
+    background-color: lightsteelblue;
+}
